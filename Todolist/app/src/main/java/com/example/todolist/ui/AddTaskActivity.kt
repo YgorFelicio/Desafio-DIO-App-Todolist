@@ -27,6 +27,7 @@ class AddTaskActivity : AppCompatActivity() {
             val taskId = intent.getIntExtra(TASK_ID, 0)
             TaskDataSource.findById(taskId)?.let {
                 binding.tilTitle.text = it.title
+                binding.tilDescription.text = it.description
                 binding.tilDate.text = it.date
                 binding.tilHour.text = it.hour
             }
@@ -69,6 +70,7 @@ class AddTaskActivity : AppCompatActivity() {
         binding.btnNewTask.setOnClickListener {
             val task = Task(
                 title = binding.tilTitle.text,
+                description = binding.tilDescription.text,
                 date = binding.tilDate.text,
                 hour = binding.tilHour.text,
                 id = intent.getIntExtra(TASK_ID, 0)
