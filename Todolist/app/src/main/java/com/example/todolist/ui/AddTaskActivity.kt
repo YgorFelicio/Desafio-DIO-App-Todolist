@@ -75,10 +75,12 @@ class AddTaskActivity : AppCompatActivity() {
                 hour = binding.tilHour.text,
                 id = intent.getIntExtra(TASK_ID, 0)
             )
-            TaskDataSource.insertTask(task)
+            TaskDataSource.insertTask(task, this)
             setResult(Activity.RESULT_OK)
+
             finish()
         }
+
     }
 
     companion object {

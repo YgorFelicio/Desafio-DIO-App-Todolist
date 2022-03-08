@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         adapter.listenerDelete = {
-            TaskDataSource.deleteTask(it)
+            TaskDataSource.deleteTask(it, this)
             updateList()
         }
     }
@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateList() {
-        val list = TaskDataSource.getList()
+        val list = TaskDataSource.getList(this)
         binding.includeEmpty.emptyState.visibility = if (list.isEmpty()) View.VISIBLE
         else View.GONE
 
